@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://www.gstatic.com/">
+    <title>Hello World!</title>
+    <link rel="stylesheet" href="style.css">
+
+  </head>
+
+
+  <body>
+    <div id = "login_column">
+
+      <div id = "login_credential">  
+        <div>
+          LOGO <br>
+          <div> LOG IN</div>
+          <form class="container" id="contactForm">
+              <!-- validation -->
+              <div class="login">
+                <div class="login_form">
+                    <label for="loginUsername">
+                        Username:
+                    </label>
+                    <input type="text" class="form-control" id="username" required>
+                </div>
+                <div class="login_form">
+                    <label for="loginPassword">
+                        Password:
+                    </label>
+                    <input type="password" class="form-control" id="password" required>
+                </div>
+              </div>
+
+              <button type="submit" id="submitBtn"">
+                  Log In
+              </button>
+          </form>
+        </div>
+        
+      </div>
+    
+      <div  id = "login_pic">
+      
+      </div>
+    </div>
+
+  </body>
+
+  <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"> </script>
+  <script src="index.js"></script>
+</html>
