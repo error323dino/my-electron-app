@@ -3,7 +3,7 @@ const path = require('path')
 
 function createWindow () {
  
-  const win = new BrowserWindow({
+  const winLogin = new BrowserWindow({
     width: 1200,
     height: 700,
     backgroundColor: '#fbffa1', 
@@ -14,13 +14,12 @@ function createWindow () {
      
     }
   });
-
-  win.once('ready-to-show', () =>{
-    win.show();
+  winLogin.once('ready-to-show', () =>{
+    winLogin.show();
   })
-  win.webContents.openDevTools();
-  win.loadFile('index.html')
-    
+  winLogin.webContents.openDevTools();
+  winLogin.loadFile('login.html')
+
 }
 
 app.whenReady().then(() => {

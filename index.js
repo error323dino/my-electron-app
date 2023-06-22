@@ -18,6 +18,7 @@ const database = getDatabase(app);
 
 document.getElementById("submitBtn").addEventListener("click", submitLogin);
 
+// Login
 function submitLogin(e) {
     e.preventDefault();
     var username = getInputVal('username');
@@ -30,7 +31,7 @@ function getInputVal(id) {
 }
 
 function myFunction() {
-  var x = document.getElementById("snackbar");
+  var x = document.getElementById("snackbarLogin");
   x.className = "show";
   setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
 }
@@ -60,7 +61,7 @@ function compareValue(inputUsername , inputPassword ) {
       }
       if (auth == true){
         console.log("Input value matches the stored value.");
-        //to main
+        window.location.href = "dashboard.html";
       }
       else{
         myFunction();
@@ -73,4 +74,3 @@ function compareValue(inputUsername , inputPassword ) {
 
 
       
-    
