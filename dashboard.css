@@ -1,0 +1,55 @@
+
+  
+  #sliderDashboard{
+    height: 220px;
+  }
+  
+  #centerDashboard{
+    display: flex;
+    justify-content: center;
+  }
+
+  #dashboard_column{
+    padding: 20px;
+    background-color: white;
+    height: 340px;
+    width:93%;
+  }
+  
+  #dashboard_title{
+    display: flex;
+  } 
+  
+  #title{
+    width: 80%;
+    font-size: larger;
+  }
+
+  #searchBarLocation{
+    display: flex;
+  }
+  
+  #searchBarLocation input[type=text] {
+    float: left;
+    padding: 5px;
+    font-size: 13px;
+    border: 2px solid rgb(3, 3, 3);
+    float: left;
+    width: 80%;
+  
+  }
+  
+  #searchBarLocation button {
+    width: 20%;
+    padding: 5px;
+    color: rgb(0, 0, 0);
+    border: 2px solid rgb(3, 3, 3);
+    border-left: none; 
+    font-size: 13px;
+  }
+  
+  #searchBarLocation::after {
+    content: "";
+    clear: both;
+    display: table;
+  }

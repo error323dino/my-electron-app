@@ -7,6 +7,7 @@ function createWindow () {
     width: 1200,
     height: 700,
     backgroundColor: '#fbffa1', 
+    resizable: false,
     //frame: false,
     show:false,
     webPreferences: {
