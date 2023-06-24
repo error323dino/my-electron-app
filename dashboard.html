@@ -3,15 +3,35 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://www.gstatic.com/ https://fyptraffic-92fba-default-rtdb.asia-southeast1.firebasedatabase.app/ https://www.googletagmanager.com/ https://s-apse1c-nss-2206.asia-southeast1.firebasedatabase.app/">
         <title>Document</title>
         <link rel="stylesheet" href="dashboard.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body>
 
-            <div  id = "sliderDashboard">slider announcement dashboard</div>
+            <div  id = "sliderDashboard">
+                <div class="slideshow-container">
 
-            <button id="redLightBtn"">Red Light Violation</button>
+                    <div class="mySlides fade">
+                      <div class="numbertext">1 / 3</div>
+                      <img src="resources/loginPic.jpg" style="width:100%">
+                    </div>
+                    
+                    <div class="mySlides fade">
+                      <div class="numbertext">2 / 3</div>
+                      <img src="resources/download.jpeg" style="width:100%">
+                    </div>
+                    
+                    <div class="mySlides fade">
+                      <div class="numbertext">3 / 3</div>
+                      <img src="resources/Bangchan.jpeg" style="width:100%">
+                    </div>
+                    
+                </div>
+            </div>
+
+            <button id="redLightBtn">Red Light Violation</button>
 
             <div id = "centerDashboard">
                 <div id="dashboard_column">
@@ -30,6 +50,8 @@
                     </div>
                 </div>
             </div>
+
+            <button id="addCamBtn"">+</button>
 
         <script type="module" src="index.js"></script>
         <script type="module" src="dashboard.js"></script>

@@ -19,7 +19,7 @@ function createWindow () {
     winLogin.show();
   })
   winLogin.webContents.openDevTools();
-  winLogin.loadFile('login.html')
+  winLogin.loadFile('dashboard.html')
 
 }
 
