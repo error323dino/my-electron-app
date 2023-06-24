@@ -1,0 +1,14 @@
+#screenshots{
+    display:flex
+}
+
+#locationScreenshots{
+    width: 20%;
+}
+
+#screenshotsColumn{
+    padding: 20px;
+    background-color: white;
+    height: 590px;
+    width: 80%;
+}
