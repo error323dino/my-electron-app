@@ -14,14 +14,15 @@ function showSlides() {
   if (slideIndex > slides.length) {slideIndex = 1}    
  
   slides[slideIndex-1].style.display = "block";  
-  setTimeout(showSlides, 2000); // Change image every 2 seconds
+  setTimeout(showSlides, 2000); 
 }
 
 document.getElementById("dashboard_locationBtn").addEventListener("load", displayDashboardLocation());
+const buttonsContainer = document.getElementById('dashboard_locationBtn');
+const searchInput = document.getElementById('search-bar');
 
 function displayDashboardLocation(){
     var databaseRef = ref(database, "Location");
-  
     onValue(databaseRef,function(snapshot) {
         if (snapshot.exists()) {
           console.log("Database connected to the specified path.");
@@ -29,10 +30,11 @@ function displayDashboardLocation(){
           console.log("No data exists at the specified path.");
         }
         const objectNames = Object.keys(snapshot.val());
-        const buttonsContainer = document.getElementById('dashboard_locationBtn');
+
         objectNames.forEach((objectName) => {
           const button = document.createElement('button');
           button.textContent = objectName;
+          button.classList.add('button');
 
           button.style.backgroundColor = 'Grey';
           button.style.fontSize = '15px';
@@ -48,8 +50,27 @@ function displayDashboardLocation(){
       
           buttonsContainer.appendChild(button);
         });
+
+        searchInput.addEventListener('input', () => {
+          const searchTerm = searchInput.value;
+          const buttons = document.getElementsByClassName('button');
+          console.log(searchTerm)
+          console.log(1)
+          console.log(buttons)
+          for (let i = 0; i < buttons.length; i++) {
+            const button = buttons[i];
+            const buttonText = button.textContent;
+            console.log(buttonText)
+
+            if (buttonText.includes(searchTerm)) {
+              button.style.display = 'block';
+            } else {
+              button.style.display = 'none';
+            }
+          }
+        });
       });
-    }
+}
 
 document.getElementById("redLightBtn").addEventListener("click", () => {
   // Redirect to another page

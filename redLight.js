@@ -30,38 +30,76 @@ function displayLocationScreenshots(){
           clickableWord.style.cursor = 'pointer';
           clickableWord.style.textDecoration = 'none';
 
-          clickableWord.addEventListener('click', displayScreenshots(objectName));
+          clickableWord.addEventListener('click', () => {
+            findChildPath(objectName);
+          });
   
           listItemElement.appendChild(clickableWord);
           listElement.appendChild(listItemElement);
         });
         listLocation.appendChild(listElement);
+        const firstClickableWord = listElement.querySelector('a');
+        if (firstClickableWord) {
+          firstClickableWord.click();
+        }
       });
 }
 
-function displayScreenshots(location){
-  const l = location;
-  const dynamicPath = "Saman/" + l + "/";
+function findChildPath(location){
+  const childValue =location;
+  const dynamicPath = "Saman";
   var databaseRef = ref(database, dynamicPath);
+
   onValue(databaseRef,function(snapshot) {
+    if (snapshot.exists()) {
+      console.log("Database connected to the specified path.");
+    } else {
+      console.log("No data exists at the specified path.");
+    }
+
     const objectN = Object.keys(snapshot.val());
-    const ssContainer = document.getElementById('listScreenshot');
-    objectN.forEach((object) => {
-      const ss= document.createElement('div');
-      for (const key in object) {
-        if (object.hasOwnProperty(key)) {
-          const propertyParagraph = document.createElement("p");
-          propertyParagraph.textContent = `${key}: ${object[key]}`;
-          
+    let findObjectN = [];
 
-          ss.appendChild(propertyParagraph);
-        }
+    objectN.forEach((objectName) => {
+      const childObject = snapshot.child(objectName).val();
+      if (childObject && childObject.Location=== childValue) {
+        findObjectN.push(objectName);
       }
-
-
-      ssContainer.appendChild(ss);
+      console.log(findObjectN)
+      displayScreenshots(findObjectN, snapshot)
     });
   });
 
 }
 
+function displayScreenshots(path, snapshot){
+
+  const ssContainer = document.getElementById('listScreenshot');
+
+  
+    ssContainer.innerHTML = '';
+
+    path.forEach((objectName) => {
+      const objectDiv = document.createElement('div');
+      objectDiv.style.padding = '100px';
+      objectDiv.style.marginBottom = '10px';
+  
+      objectDiv.classList.add('objectDetails');
+
+      const objectHeader = document.createElement('h3');
+      objectHeader.textContent = objectName;
+
+      const objectDetails = snapshot.val()[objectName];
+
+      for (const key in objectDetails) {
+        if (objectDetails.hasOwnProperty(key)) {
+          const propertyParagraph = document.createElement("p");
+          propertyParagraph.textContent = `${key}: ${objectDetails[key]}`;
+
+          objectDiv.appendChild(propertyParagraph);
+        }
+      }
+
+      ssContainer.appendChild(objectDiv);
+    });
+}

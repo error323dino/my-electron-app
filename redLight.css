@@ -12,3 +12,7 @@
     height: 590px;
     width: 80%;
 }
+
+#listScreenshot{
+    display:flex
+}
