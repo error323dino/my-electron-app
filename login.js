@@ -1,13 +1,11 @@
 import database from './index.js';
 import {ref, onValue} from "https://www.gstatic.com/firebasejs/9.22.2/firebase-database.js"
 
-
-
 function submitLogin(e) {
-    e.preventDefault();
-    var username = getInputVal('username');
-    var password = getInputVal('password');
-    compareValue(username, password);
+  e.preventDefault();
+  var username = getInputVal('username');
+  var password = getInputVal('password');
+  compareValue(username , password )
 }
 
 document.getElementById("submitBtn").addEventListener("click", submitLogin);

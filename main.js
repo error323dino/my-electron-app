@@ -19,7 +19,7 @@ function createWindow () {
     winLogin.show();
   })
   winLogin.webContents.openDevTools();
-  winLogin.loadFile('redLight.html')
+  winLogin.loadFile('login.html')
 
 }
 
