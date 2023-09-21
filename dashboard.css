@@ -44,6 +44,8 @@
 }
   
   #centerDashboard{
+    background-color: rgb(246, 246, 247);
+    height: 423px;
     display: flex;
     justify-content: center;
   }
@@ -58,15 +60,7 @@
   #dashboard_title{
     display: flex;
   } 
-  
-  #title{
-    width: 80%;
-    font-size: larger;
-  }
 
-  #searchBarLocation{
-    display: flex;
-  }
   
   #searchBarLocation input[type=text] {
     float: left;
@@ -84,12 +78,15 @@
   }
 
   #dashboard_locationBtn{
-    overflow: auto;
+    text-align: center;
+    overflow-y: auto;
+    height: 200px; 
   }
 
-  #addCamBtn{
-    position: absolute;
-    z-index: 2;
-    margin-top: -50px;
-    margin-left: 1100px;
-  }
+
+#buttons{
+  gap: 30px;
+  margin-left: 890px;
+  margin-top: -50px;
+  display: flex; 
+}

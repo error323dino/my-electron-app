@@ -6,7 +6,9 @@
         <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://www.gstatic.com/ https://fyptraffic-92fba-default-rtdb.asia-southeast1.firebasedatabase.app/ https://www.googletagmanager.com/ https://s-apse1c-nss-2206.asia-southeast1.firebasedatabase.app/">
         <title>Document</title>
         <link rel="stylesheet" href="dashboard.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
     </head>
     <body>
 
@@ -31,27 +33,33 @@
                 </div>
             </div>
 
-            <button id="redLightBtn">Red Light Violation</button>
+            <button class="button is-link" id="redLightBtn">Red Light Violation</button>
 
             <div id = "centerDashboard">
+
                 <div id="dashboard_column">
+                    <p style="color: rgb(176, 194, 16); text-align: center; padding-top: 10px;  padding-bottom: 10px;"> <i class="fas fa-exclamation-triangle"></i> Always exercise RESPONSIBILITY when driving <i class="fas fa-exclamation-triangle"></i></p>
                     <div id = "dashboard_title">
-                        <div id="title">Locations</div>
-                        <div id="searchLocation">
-                            <form id = "searchBarLocation">
+                        <div class="content is-medium" >
+                            <h3 style="color: rgb(86, 143, 207);">LOCATIONS</h3>
+                          </div>
+                        <div id="searchLocation" style=" margin-left: 750px;">
+                            <form id = "searchBarLocation" >
                             <input type="text" placeholder="Search Location..." name="search" id="search-bar">
                             </form>
                         </div>
                     </div>
             
-                    <div id="dashboard_locationBtn" >
+                    <div id="dashboard_locationBtn">
             
                     </div>
-                </div>
+                 </div>
             </div>
-
-            <button id="addCamBtn"">+</button>
-
+            <div id="buttons">
+                <button id="addCamBtn" class="button is-warning">Add Locations</button>
+                <button id="logoutBtn" class="button is-danger">Logout</button>
+            </div>
+          
         <script type="module" src="index.js"></script>
         <script type="module" src="dashboard.js"></script>
     

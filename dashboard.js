@@ -35,14 +35,11 @@ function displayDashboardLocation(){
           const button = document.createElement('button');
           button.textContent = objectName;
           button.classList.add('button');
-
-          button.style.backgroundColor = 'Grey';
           button.style.fontSize = '15px';
-          button.style.color = 'white';
-          button.style.border = 'none';
+          button.style.color = 'black';
           button.style.width = '200px';
-          button.style.padding = '20px 20px';
-          button.style.margin = '35px';
+          button.style.padding = '20px';
+          button.style.margin = '25px';
 
           // button.addEventListener('click', () => {
             // window.location.href = 'location.html?parameter=${encodeURIComponent(objectName)}`';
@@ -51,30 +48,36 @@ function displayDashboardLocation(){
           buttonsContainer.appendChild(button);
         });
 
-        searchInput.addEventListener('input', () => {
-          const searchTerm = searchInput.value;
-          const buttons = document.getElementsByClassName('button');
-          console.log(searchTerm)
-          console.log(1)
-          console.log(buttons)
+    // ...
+        searchInput.addEventListener("input", () => {
+          const searchTerm = searchInput.value.toLowerCase();
+          const buttons = document.getElementsByClassName("button");
+
           for (let i = 0; i < buttons.length; i++) {
             const button = buttons[i];
-            const buttonText = button.textContent;
-            console.log(buttonText)
+            const buttonText = button.textContent.toLowerCase();
 
-            if (buttonText.includes(searchTerm)) {
-              button.style.display = 'block';
+            if (searchTerm === "") {
+              // Reload the page when the search input is empty
+              location.reload();
+            } else if (buttonText.includes(searchTerm)) {
+              button.style.display = "block";
             } else {
-              button.style.display = 'none';
+              button.style.display = "none";
             }
           }
         });
+
       });
 }
 
 document.getElementById("redLightBtn").addEventListener("click", () => {
   // Redirect to another page
   window.location.href = 'redLight.html';
+});
+
+document.getElementById("logoutBtn").addEventListener("click", function () {
+  window.location.href = "login.html";
 });
 
   

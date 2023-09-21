@@ -3,6 +3,10 @@
 }
 
 #locationScreenshots{
+    background-color:  rgb(252, 253, 243);
+    padding: 20px;
+
+    height: 650px;
     width: 20%;
 }
 

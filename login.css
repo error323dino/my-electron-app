@@ -1,5 +1,4 @@
 body{
-
     background-color: rgb(214, 222, 230);
     display: flex;
     justify-content: center;
@@ -10,7 +9,7 @@ body{
     display: flex; 
     background-color: white;
     border-radius: 20px;
-    height: 653px;
+    height: 652px;
     width: 95%;  
 }
 

@@ -6,26 +6,37 @@
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://www.gstatic.com/ https://fyptraffic-92fba-default-rtdb.asia-southeast1.firebasedatabase.app/ https://www.googletagmanager.com/ https://s-apse1c-nss-2206.asia-southeast1.firebasedatabase.app/">
     <title>Hello World!</title>
     <link rel="stylesheet" href="redLight.css">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://s-apse1b-nss-211.asia-southeast1.firebasedatabase.app/ https://www.googletagmanager.com/ https://www.gstatic.com https://fyptraffic-92fba-default-rtdb.asia-southeast1.firebasedatabase.app/;">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+
 </head>
 <body>
     <div id="screenshots">
         <div id="locationScreenshots">
-            <div id="title">
-                Locations:
-            </div>
+            <a href="#" id="goBackLink">
+                <img src="resources/back.png" alt="Go Back" style="height: 50px; width: 50px;">
+            </a>
+            <div class="content is-medium">
+                <h4 style="color: rgb(161, 189, 85); padding-top: 15px; padding-bottom: 20px;">Locations:</h4>
+              </div>
             <div id="listLocation">
                
             </div>
         </div>
         <div id="screenshotsColumn">
-            <div id="titleScreenshot">
-                Screenshots:
-            </div>
+            <div class="content is-medium">
+               
+                <h3 style="color: rgb(86, 143, 207)">SCREENSHOTS</h3>
+
+              </div>
             <div id="listScreenshot">
 
             </div>
         </div>
     </div>
+  
     <script type="module" src="index.js"></script>
     <script type="module" src="redLight.js"></script>
 </body>
