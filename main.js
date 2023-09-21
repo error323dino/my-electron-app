@@ -1,6 +1,6 @@
 const { app, BrowserWindow } = require('electron')
 const path = require('path')
-const { spawn } = require('child_process');
+const electronReload = require('electron-reload');
 
 
 // const axios = require('axios');
@@ -14,6 +14,10 @@ const { spawn } = require('child_process');
 //     console.error(error);
 //     // Handle any errors that occurred during the request
 //   });
+
+electronReload(__dirname, {
+  electron: path.join(__dirname, 'node_modules', '.bin', 'electron'),
+});
 
 function createWindow () {
  

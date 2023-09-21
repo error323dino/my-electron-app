@@ -6,6 +6,10 @@
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://www.gstatic.com/ https://fyptraffic-92fba-default-rtdb.asia-southeast1.firebasedatabase.app/ https://www.googletagmanager.com/ https://s-apse1c-nss-2206.asia-southeast1.firebasedatabase.app/">
     <title>Hello World!</title>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://s-apse1b-nss-211.asia-southeast1.firebasedatabase.app/  https://www.googletagmanager.com/ https://www.gstatic.com;">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="login.css">
 
   </head>
@@ -16,29 +20,36 @@
 
       <div id = "login_credential">  
         <div>
-          LOGO <br>
-          <div> LOG IN</div>
+          <div class="content is-medium">
+            <img src="resources/logo.jpg" style = "   width: 270px;height: 80px;">
+            <h3>LOG IN</h3>
+            <p style="font-size: smaller;"><i>"Only authorized individuals are allowed to access to this system."</i></p>
+          </div>
+          
           <form class="container" id="contactForm">
               <!-- validation -->
               <div class="login">
-                <div class="login_form">
-                    <label for="loginUsername">
-                        Username:
-                    </label>
-                    <input type="text" class="form-control" id="username" required>
+
+                <div class="login_form" style ="padding-top: 20px;">
+    
+                  <div class="control">
+                    <input class="input" type="text"  id="username" required placeholder="Username">
+                  </div>
                 </div>
-                <div class="login_form">
-                    <label for="loginPassword">
-                        Password:
-                    </label>
-                    <input type="password" class="form-control" id="password" required>
+
+                <div class="login_form" style ="padding-top: 30px;">
+                
+                    <div class="control">
+                      <input class="input" type="password" id="password" required placeholder="Password">
+                    </div>
                 </div>
               </div>
 
-              <button type="submit" id="submitBtn"">
-                  Log In
-              </button>
-              <div  id="snackbarLogin">Invalid Credentials</div>
+              <div class="control"  type="submit" id="submitBtn" style ="padding-top: 50px;">
+                <button class="button is-link is-light">Log In</button>
+              </div>
+            
+              <div  id="snackbarLogin" style="font-weight: 400;">Invalid Credentials</div>
           </form>
         </div>
         

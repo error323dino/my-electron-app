@@ -1,26 +1,28 @@
 body{
+
+    background-color: rgb(214, 222, 230);
     display: flex;
     justify-content: center;
 }
 
 #login_column{
+    border: #a1a1a1;
     display: flex; 
     background-color: white;
     border-radius: 20px;
-    height: 623px;
-    width: 99%;  
+    height: 653px;
+    width: 95%;  
 }
 
 #login_credential{
     display: flex; 
-    justify-content: center;
     align-items: center;
-    width: 60%;
+    width: 55%;
     padding: 50px;
 }
 
 #login_pic{
-    width: 40%;
+    width: 45%;
     background-image: url("resources/loginPic.jpg");
     border-radius: 0px 20px 20px 0px;
     background-size: cover;
