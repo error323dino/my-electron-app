@@ -5,7 +5,6 @@
 #locationScreenshots{
     background-color:  rgb(252, 253, 243);
     padding: 20px;
-
     height: 650px;
     width: 20%;
 }
@@ -17,6 +16,25 @@
     width: 80%;
 }
 
-#listScreenshot{
-    display:flex
+
+/* styles.css *//* styles.css */
+/* Style for the container holding the grid items */
+#listScreenshot {
+  display: flex;
+  flex-direction: column; /* Display items in a column */
+}
+
+/* Style for each row in the grid */
+.grid-row {
+  display: flex;
+  justify-content: space-between; /* Place items evenly along the row */
+  margin-bottom: 20px; /* Adjust the margin between rows */
+}
+
+/* Style for each grid item */
+.grid-item {
+  flex: 0 0 calc(50% - 10px); /* Each item takes up 50% width with a little spacing */
+  border: 1px solid #ccc; /* Add a border around each grid item */
+  padding: 10px; /* Add padding to each item */
+  box-sizing: border-box; /* Include padding and border in the item's width */
 }

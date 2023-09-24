@@ -45,66 +45,90 @@ function displayLocationScreenshots(){
       });
 }
 
-function findChildPath(location){
-  const childValue =location;
-  const dynamicPath = "Saman";
+function findChildPath(location) {
+  const dynamicPath = "Saman"; // You may need to update this if your path structure varies
   var databaseRef = ref(database, dynamicPath);
 
-  onValue(databaseRef,function(snapshot) {
+  onValue(databaseRef, function (snapshot) {
     if (snapshot.exists()) {
       console.log("Database connected to the specified path.");
     } else {
       console.log("No data exists at the specified path.");
     }
 
-    const objectN = Object.keys(snapshot.val());
-    let findObjectN = [];
+    const objectNames = Object.keys(snapshot.val());
 
-    objectN.forEach((objectName) => {
-      const childObject = snapshot.child(objectName).val();
-      if (childObject && childObject.Location=== childValue) {
-        findObjectN.push(objectName);
-      }
-      console.log(findObjectN)
-      displayScreenshots(findObjectN, snapshot)
-    });
+    // Call the displayScreenshots function with the selected location and the database snapshot
+    displayScreenshots(location, snapshot);
   });
-
 }
 
-function displayScreenshots(path, snapshot){
 
+function displayScreenshots(location, snapshot) {
   const ssContainer = document.getElementById('listScreenshot');
+  ssContainer.innerHTML = '';
 
-  
-    ssContainer.innerHTML = '';
+  const objects = snapshot.val();
 
-    path.forEach((objectName) => {
-      const objectDiv = document.createElement('div');
-      objectDiv.style.padding = '100px';
-      objectDiv.style.marginBottom = '10px';
-  
-      objectDiv.classList.add('objectDetails');
+  let row = document.createElement('div');
+  row.classList.add('grid-row'); // Create a row container
 
-      const objectHeader = document.createElement('h3');
-      objectHeader.textContent = objectName;
+  let count = 0; // To keep track of items in the current row
 
-      const objectDetails = snapshot.val()[objectName];
+  // Iterate through the objects and display only those matching the selected location
+  for (const objectName in objects) {
+    if (objects.hasOwnProperty(objectName)) {
+      const objectDetails = objects[objectName];
+      if (objectDetails.Location === location) {
+        const objectDiv = document.createElement('div');
+        objectDiv.classList.add('grid-item'); // Assuming you have a CSS class for styling grid items
 
-      for (const key in objectDetails) {
-        if (objectDetails.hasOwnProperty(key)) {
-          const propertyParagraph = document.createElement("p");
-          propertyParagraph.textContent = `${key}: ${objectDetails[key]}`;
+        const objectHeader = document.createElement('h3');
+        objectHeader.textContent = objectName;
 
-          objectDiv.appendChild(propertyParagraph);
+        // Create an <img> element for displaying the image
+        const imageElement = document.createElement('img');
+
+        // Generate the signed URL for the image
+        const signedUrl = objectDetails.Picture; // Replace with the actual signed URL
+
+        imageElement.src = signedUrl; // Set the src attribute to the signed URL
+
+        const fieldsToDisplay = ['Camera', 'CarPlate', 'Location', 'Time'];
+
+        fieldsToDisplay.forEach((fieldName) => {
+          if (objectDetails.hasOwnProperty(fieldName)) {
+            const propertyParagraph = document.createElement('p');
+            propertyParagraph.textContent = `${fieldName}: ${objectDetails[fieldName]}`;
+            objectDiv.appendChild(propertyParagraph);
+          }
+        });
+
+        // Append the image and other details to the current grid item
+        objectDiv.appendChild(imageElement);
+        row.appendChild(objectDiv);
+
+        count++;
+
+        // If we have reached two items in the current row, start a new row
+        if (count === 2) {
+          ssContainer.appendChild(row);
+          row = document.createElement('div');
+          row.classList.add('grid-row'); // Create a new row container
+          count = 0;
         }
       }
+    }
+  }
 
-      ssContainer.appendChild(objectDiv);
-    });
-
-    
+  // Append the last row if it's not full
+  if (count > 0) {
+    ssContainer.appendChild(row);
+  }
 }
+
+
+
 document.getElementById('goBackLink').addEventListener('click', function (event) {
   event.preventDefault(); // Prevent the default link behavior
   window.history.back(); // Navigate back to the previous page
