@@ -1,67 +1,102 @@
-<!DOCTYPE html>
+
 <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://www.gstatic.com/ https://fyptraffic-92fba-default-rtdb.asia-southeast1.firebasedatabase.app/ https://www.googletagmanager.com/ https://s-apse1c-nss-2206.asia-southeast1.firebasedatabase.app/">
+        <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://www.gstatic.com/ https://fyptraffic-92fba-default-rtdb.asia-southeast1.firebasedatabase.app/ https://www.googletagmanager.com/ https://s-apse1c-nss-2206.asia-southeast1.firebasedatabase.app/
+        'sha256-vvt4KWwuNr51XfE5m+hzeNEGhiOfZzG97ccfqGsPwvE='">
         <title>Document</title>
         <link rel="stylesheet" href="dashboard.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.1.1/css/boxicons.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+        
     </head>
+    <!-- nav bar  -->
+    <nav class="navbar navbar-expand-lg navbar-dark custom-navbar" style="background-color: #5599fd;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="/resources/transparentLogo.png" width="140" height="100" alt="Logo" class="white-image">
+            </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="dashboard.html">Dashboard</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="redLight.html" class="button is-link" id="redLightBtn" >Red Light Violation</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" id="logoutBtn">Log Out</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
     <body>
 
-            <div  id = "sliderDashboard">
-                <div class="slideshow-container">
+        <div class="main-container">
 
+            <!-- announcement slidshow  -->
+            <div id="sliderDashboard">
+                <div class="slideshow-container">
+                    <div class="numbertext">1 / 3</div>
                     <div class="mySlides fade">
-                      <div class="numbertext">1 / 3</div>
-                      <img src="resources/loginPic.jpg" style="width:100%">
+                        <img src="resources/loginPic.jpg">
                     </div>
-                    
                     <div class="mySlides fade">
-                      <div class="numbertext">2 / 3</div>
-                      <img src="resources/download.jpeg" style="width:100%">
+                        <img src="resources/announcement1.jpg">
                     </div>
-                    
                     <div class="mySlides fade">
-                      <div class="numbertext">3 / 3</div>
-                      <img src="resources/Bangchan.jpeg" style="width:100%">
+                        <img src="resources/announcement2.jfif">
                     </div>
-                    
                 </div>
             </div>
+            
+            <div>
+                <p style="color: rgb(194, 16, 16); text-align: center; padding-top: 10px;  padding-bottom: 10px;"> <i class="fas fa-exclamation-triangle"></i> Always exercise RESPONSIBILITY when driving <i class="fas fa-exclamation-triangle"></i></p>
+            </div>
 
-            <button class="button is-link" id="redLightBtn">Red Light Violation</button>
+            <!-- draw a grey line  -->
+            <hr class="grey-line">
 
             <div id = "centerDashboard">
 
                 <div id="dashboard_column">
-                    <p style="color: rgb(176, 194, 16); text-align: center; padding-top: 10px;  padding-bottom: 10px;"> <i class="fas fa-exclamation-triangle"></i> Always exercise RESPONSIBILITY when driving <i class="fas fa-exclamation-triangle"></i></p>
-                    <div id = "dashboard_title">
-                        <div class="content is-medium" >
-                            <h3 style="color: rgb(86, 143, 207);">LOCATIONS</h3>
-                          </div>
-                        <div id="searchLocation" style=" margin-left: 750px;">
-                            <form id = "searchBarLocation" >
-                            <input type="text" placeholder="Search Location..." name="search" id="search-bar">
+                    <div id="dashboard_title" style="display: flex; justify-content: space-between; align-items: center;">
+                        <h4 style="font-weight: lighter;">Location</h4>
+                        <!-- search bar -->
+                        <div id="searchLocation" class="input-group rounded">
+                            <form id="searchBarLocation">
+                                <input type="search" class="form-control rounded custom-width" placeholder="Search" aria-label="Search" aria-describedby="search-addon" id="search-bar"/>
                             </form>
                         </div>
+
+                        <div id="buttons">
+                            <button type="button" class="btn btn-primary btn-floating" id="toAddCameraPage">
+                                <i class='bx bx-plus'></i>
+                            </button>                    
+                        </div>
                     </div>
-            
-                    <div id="dashboard_locationBtn">
-            
+                    
+                    
+                    <div id="dashboard_locationBtn" class="d-flex flex-wrap" style="margin-left: 6.5rem;">
+                    
                     </div>
-                 </div>
+
+                </div>
+
             </div>
-            <div id="buttons">
-                <button id="addCamBtn" class="button is-warning">Add Locations</button>
-                <button id="logoutBtn" class="button is-danger">Logout</button>
-            </div>
-          
-        <script type="module" src="index.js"></script>
-        <script type="module" src="dashboard.js"></script>
-    
+        </div>
     </body>
+    <footer>
+        © 2023 Terr-afic All rights reserved.
+    </footer>
+    <script type="module" src="index.js"></script>
+    <script type="module" src="dashboard.js"></script>    
 </html> 

@@ -40,7 +40,10 @@ function createWindow () {
   })
 
   winLogin.webContents.openDevTools();
-  winLogin.loadFile('login.html')
+  winLogin.loadFile('index.html')
+  .catch(error => {
+    console.error('Error loading login.html:', error);
+  });
 
 }
 

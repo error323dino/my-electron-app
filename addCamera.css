@@ -1,0 +1,14 @@
+/* start logo colour  */
+.white-image {
+    filter: brightness(200%); /* Adjust the percentage as needed */
+  }
+/* end logo colour  */
+
+.form-container{
+    width: 80%;
+    margin: 0 auto;
+}
+
+.is-valid {
+    border-color: initial;
+}

@@ -1,9 +1,15 @@
+/* start logo colour  */
+.white-image {
+  filter: brightness(200%); /* Adjust the percentage as needed */
+}
+/* end logo colour  */
+
 #screenshots{
     display:flex
 }
 
 #locationScreenshots{
-    background-color:  rgb(252, 253, 243);
+    background-color:  #fafcff;
     padding: 20px;
     height: 650px;
     width: 20%;
@@ -38,3 +44,15 @@
   padding: 10px; /* Add padding to each item */
   box-sizing: border-box; /* Include padding and border in the item's width */
 }
+
+footer {
+  background-color: #5599fd; /* Dark blue */
+  color: #ecf0f1; /* Light text */
+  text-align: center;
+  padding: 10px;
+  font-size: 12px;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 1000; /* Optional: ensure the footer is above other content */
+}   

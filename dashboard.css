@@ -1,92 +1,144 @@
-#sliderDashboard{
-    height: 220px;
-    width: 100%;
+
+/* start logo colour  */
+.white-image {
+  filter: brightness(200%); /* Adjust the percentage as needed */
+}
+/* end logo colour  */
+
+
+.main-container{
+  width: 80%;
+  margin: 0 auto;
+  background-color: white; /* Set the background color of the center dashboard to white */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow for better definition */
+}
+
+/* start slide design  */
+#sliderDashboard {
+  padding-top: 20px;
+  width: 80%; /* Adjusted the width to 80% of the parent container */
+  margin: 0 auto; /* Center the slider */
+  /* box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); Optional: Add a shadow for better definition */
+  border-radius: 8px; /* Optional: Round the corners */
+  overflow: hidden; /* Ensure the images and elements are contained within the slider */
+}
+
+.slideshow-container {
   position: relative;
-  margin: auto;
+  display: flex; /* Use flexbox */
+  align-items: center; /* Center items vertically */
+  justify-content: center; /* Center items horizontally */
 }
 
 .mySlides {
-  display: none;
+  display: none; /* Hide slides initially */
 }
 
-#sliderDashboard img{
-  vertical-align: middle;
-  height: 220px;
+.mySlides img {
+  height: 400px; /* Set a fixed height */
+  width: auto; /* Auto width to maintain aspect ratio */
+  border-bottom: 2px solid #ccc; /* Optional: Add a border below the image */
 }
 
 .numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
   position: absolute;
-  top: 0;
+  top: 10px;
+  right: 10px;
+  color: black;
+  padding: 8px;
+  border-radius: 4px; /* Optional: Round the corners of the number text */
 }
 
-.active {
-  background-color: #717171;
+/* Show the first slide initially */
+.mySlides:first-child {
+  display: flex; /* Set the first slide to display as flex */
 }
 
+/* slide animation  */
 .fade {
   animation-name: fade;
   animation-duration: 1.5s;
 }
 
 @keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/* end slide design  */
+
+/*  start button design for each location button  */
+#dashboard_locationBtn{
+  display: flex;
+  flex-wrap: wrap;
+  overflow-y: auto;
 }
 
-#redLightBtn{
-  position: absolute;
-  z-index: 2;
-  margin-top: -200px;
-  margin-left: 1000px;
+#dashboard_locationBtn .button{
+  flex: 0 0 calc(33% - 40px);
 }
-  
-  #centerDashboard{
-    background-color: rgb(246, 246, 247);
-    height: 423px;
-    display: flex;
-    justify-content: center;
-  }
+/*  end button design for each location button  */
 
-  #dashboard_column{
-    padding: 20px;
-    background-color: white;
-    height: 360px;
-    width:93%;
-  }
-  
-  #dashboard_title{
-    display: flex;
-  } 
+/* start footer  */
+footer {
+  background-color: #5599fd; /* Dark blue */
+  color: #ecf0f1; /* Light text */
+  text-align: center;
+  padding: 10px;
+  font-size: 12px;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 1000; /* Optional: ensure the footer is above other content */
+}   
+/* end footer  */
 
-  
-  #searchBarLocation input[type=text] {
-    float: left;
-    padding: 5px;
-    font-size: 13px;
-    border: 2px solid rgb(3, 3, 3);
-    float: left;
-    width: 80%;
-  }
-  
-  #searchBarLocation::after {
-    content: "";
-    clear: both;
-    display: table;
-  }
-
-  #dashboard_locationBtn{
-    text-align: center;
-    overflow-y: auto;
-    height: 200px; 
-  }
-
-
-#buttons{
-  gap: 30px;
-  margin-left: 890px;
-  margin-top: -50px;
-  display: flex; 
+#centerDashboard {
+  background-color: white; /* Set the background color of the center dashboard to white */
 }
+
+/* start horizontal line  */
+.grey-line {
+  border: 2px;
+  height: 1px; /* or any height you prefer */
+  box-shadow:  5px 4px 6px rgba(0, 0, 0, 0.1); /* or any grey shade you prefer */
+}
+/* end horizontal line  */
+/* 
+location title  */
+.content{
+  margin-left: 40px;
+}
+
+#dashboard_title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px; /* Optional: for some padding */
+}
+
+.input-group {
+  width: auto !important; /* or set it to any specific value that you desire */
+}
+
+/* add button  */
+.btn-floating {
+  width: 35px !important; /* Set the width of the button */
+  height: 35px !important; /* Set the height of the button */
+  border-radius: 50% !important; /* Make the button rounded */
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  
+}
+
+#centerDashboard {
+  display: block; /* Use flexbox */
+}
+
+
