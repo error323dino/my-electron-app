@@ -213,3 +213,6 @@ document.getElementById('goBackLink').addEventListener('click', function (event)
   event.preventDefault(); // Prevent the default link behavior
   window.history.back(); // Navigate back to the previous page
 });
+document.getElementById("logoutBtn").addEventListener("click", function() {
+  window.location.href = "login.html";
+});
