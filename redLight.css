@@ -70,3 +70,11 @@ footer {
   z-index: 1000; /* Optional: ensure the footer is above other content */
 }   
 
+.no-records-message {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  text-align:center;
+  color: rgb(124, 119, 119); /* Change the text color to red or your preferred color */
+  font-weight: thin; /* Add bold font-weight */
+  font-style: italic; 
+}
