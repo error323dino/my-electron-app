@@ -82,19 +82,26 @@
 }
 /*  end button design for each location button  */
 
-/* start footer  */
+/* Modified footer style */
 footer {
   background-color: #5599fd; /* Dark blue */
   color: #ecf0f1; /* Light text */
   text-align: center;
   padding: 10px;
   font-size: 12px;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  z-index: 1000; /* Optional: ensure the footer is above other content */
-}   
-/* end footer  */
+}
+
+/* Styles for keeping the footer at the bottom */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.main-container {
+  flex: 1;
+}
 
 #centerDashboard {
   background-color: white; /* Set the background color of the center dashboard to white */

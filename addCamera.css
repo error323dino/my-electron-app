@@ -12,3 +12,24 @@
 .is-valid {
     border-color: initial;
 }
+
+/* Modified footer style */
+footer {
+    background-color: #5599fd; /* Dark blue */
+    color: #ecf0f1; /* Light text */
+    text-align: center;
+    padding: 10px;
+    font-size: 12px;
+}
+
+/* Styles for keeping the footer at the bottom */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.content {
+    flex: 1;
+}

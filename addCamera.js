@@ -189,6 +189,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     
             // Optionally, show a success message to the user
             alert('Data has been successfully saved!');
+            window.location.href = "dashboard.html";
             
         } catch (error) {
             // Log the error to the console and show an error message to the user
