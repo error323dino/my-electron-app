@@ -18,7 +18,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark custom-navbar" style="background-color: #5599fd;">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">
-            <img src="/resources/transparentLogo.png" width="140" height="100" alt="Logo" class="white-image">
+          <img src="C:\Users\User\Documents\GitHub\my-electron-app\resources\logo.jpg" width="140" height="100" alt="Logo" class="white-image">
         </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -51,13 +51,16 @@
                
             </div>
         </div>
-        <div id="screenshotsColumn">
-            <div class="content is-medium">
-               
-                <h3 style="color: #5599fd;">SCREENSHOTS</h3>
-
-              </div>
-              <div id="listScreenshot" class="grid-container">
+        <div id="screenshotsColumn" class="location-list">
+          <div class="content is-medium" style="display: flex; align-items: center; ">
+            <h3 style="color: #5599fd; margin: 0; width:90%">SCREENSHOTS</h3>
+            <a id="sortButton" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sort-up" viewBox="0 0 16 16">
+                    <path d="M3.5 12.5a.5.5 0 0 1-1 0V3.707L1.354 4.854a.5.5 0 1 1-.708-.708l2-1.999.007-.007a.498.a498 0 0 1 .7.006l2 2a.5.5 0 1 1-.707.708L3.5 3.707V12.5zm3.5-9a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zM7.5 6a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zm0 3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zm0 3a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1z"/>
+                </svg>
+            </a>
+        </div>
+              <div id="listScreenshot" class="grid-container scrollable-container">
 
             </div>
         </div>

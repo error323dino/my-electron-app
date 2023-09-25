@@ -8,6 +8,12 @@
     display:flex
 }
 
+.scrollable-container {
+  max-height: 500px; /* Adjust the maximum height as needed */
+  overflow-y: auto; /* Enable vertical scrolling */
+  border: 1px solid #ddd; /* Add a border for a visual separation */
+}
+
 #locationScreenshots{
     background-color:  #fafcff;
     padding: 20px;
@@ -21,7 +27,14 @@
     height: 590px;
     width: 80%;
 }
+.location-list {
+  color: black;
+}
 
+.location-list a:hover {
+  /* Change the color on hover */
+  color: blue; /* You can use any color you prefer */
+}
 
 /* styles.css *//* styles.css */
 /* Style for the container holding the grid items */
