@@ -1,7 +1,6 @@
 import { ref, onValue, set, get, remove } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-database.js";
 import database from './index.js';
 
-
 // Regular expression for validating an IP address
 const ipPattern = /^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$/;
 
@@ -9,76 +8,75 @@ document.addEventListener('DOMContentLoaded', async () => {
     const db = database;
     const params = new URLSearchParams(window.location.search);
     const stateName = params.get('state');
-    
-    
+
     if (stateName) {
         const stateRef = ref(db, 'Location/' + stateName);
         const cameraRef = ref(db, 'Camera');
-        
+
         try {
             const [stateSnapshot, cameraSnapshot] = await Promise.all([
                 get(stateRef),
                 get(cameraRef)
             ]);
-            
+
             if (stateSnapshot.exists()) {
                 const stateData = stateSnapshot.val();
                 const cameraData = cameraSnapshot.val();
-            
-            // Populate State Input
-            document.getElementById('stateInput').value = stateName;
-            
-            // Populate City Input
-            document.getElementById('cityInput').value = stateData.Address;
-            
-            // Populate Street Input
-            document.getElementById('streetInput').value = stateData.Street; // Corrected to "Street"
-    
-            // Populate IP Address Inputs
-            const ipAddressesContainer = document.getElementById('ipAddressesContainer');
-            const cameraIDs = stateData.Camera || {}; // Corrected to "Camera"
-            for (const cameraID in cameraIDs) {
-              if (cameraData[cameraID]) {
-                console.log("IP Address for cameraID", cameraID, ":", cameraData[cameraID].ipAddress);
-                
-                const div = document.createElement('div');
-                const label = document.createElement('label');
-                label.innerHTML = 'IP Address';
-                div.appendChild(label);
-                
-                const ipAddressInput = document.createElement('input');
-                ipAddressInput.type = "text";
-                ipAddressInput.className = "form-control";
-                ipAddressInput.value = cameraData[cameraID].ipAddress;
-                ipAddressInput.disabled = true;
-                div.appendChild(ipAddressInput);
-                
-                ipAddressesContainer.appendChild(div);
-              } else {
-                console.warn("No data available for cameraID:", cameraID);
-              }
-            }
-    
-           // Add Edit Button Event Listener
-            document.getElementById('editBtn').addEventListener('click', () => {
-            document.querySelectorAll('.form-control').forEach(input => input.disabled = false);
-            document.getElementById('editBtn').style.display = 'none';
-            document.getElementById('saveBtn').style.display = 'block';
-            document.getElementById('deleteBtn').style.display = 'none';
 
-            // Attach IP Address Validation Listener to all IP Address inputs
-            document.querySelectorAll('.ip-address-input').forEach(ipInput => {
-                ipInput.addEventListener('input', function () {
-                if (ipPattern.test(ipInput.value)) {
-                    ipInput.classList.add('is-valid');
-                    ipInput.classList.remove('is-invalid');
-                } else {
-                    ipInput.classList.add('is-invalid');
-                    ipInput.classList.remove('is-valid');
+                // Populate State Input
+                document.getElementById('stateInput').value = stateName;
+
+                // Populate City Input
+                document.getElementById('cityInput').value = stateData.Address;
+
+                // Populate Street Input
+                document.getElementById('streetInput').value = stateData.Street;
+
+                // Populate IP Address Inputs
+                const ipAddressesContainer = document.getElementById('ipAddressesContainer');
+                const cameraIDs = stateData.Camera || {};
+                for (const cameraID in cameraIDs) {
+                    if (cameraData[cameraID]) {
+                        
+                        const div = document.createElement('div');
+                        const label = document.createElement('label');
+                        label.innerHTML = 'IP Address';
+                        div.appendChild(label);
+                        
+                        const ipAddressInput = document.createElement('input');
+                        ipAddressInput.type = "text";
+                        ipAddressInput.className = "form-control";
+                        ipAddressInput.value = cameraData[cameraID].ipAddress;
+                        ipAddressInput.disabled = true;
+                        div.appendChild(ipAddressInput);
+                        
+                        // Attach event listener here as soon as the input is created
+                        ipAddressInput.addEventListener('input', function () {
+                            if (ipPattern.test(ipAddressInput.value)) {
+                                ipAddressInput.classList.add('is-valid');
+                                ipAddressInput.classList.remove('is-invalid');
+                            } else {
+                                ipAddressInput.classList.add('is-invalid');
+                                ipAddressInput.classList.remove('is-valid');
+                            }
+                        });
+                        
+                        ipAddressesContainer.appendChild(div);
+                    } else {
+                        console.warn("No data available for cameraID:", cameraID);
+                    }
                 }
+
+                            // Add Edit Button Event Listener
+                document.getElementById('editBtn').addEventListener('click', () => {
+                    // Enable editing only for IP address inputs
+                    document.querySelectorAll('#ipAddressesContainer input').forEach(input => input.disabled = false);
+                    
+                    document.getElementById('editBtn').style.display = 'none';
+                    document.getElementById('saveBtn').style.display = 'block';
+                    document.getElementById('deleteBtn').style.display = 'none';
                 });
-            });
-        });
+                
 
         // Add Edit Button Event Listener
         document.getElementById('saveBtn').addEventListener('click', () => {
@@ -131,3 +129,26 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
         });
 
+        document.getElementById("logoutBtn").addEventListener("click", function() {
+            window.location.href = "login.html";
+          });
+
+          function enableEditState() {
+            const stateContainer = document.getElementById('stateContainer');
+            stateContainer.innerHTML = `
+               <div class="col-md-3 mb-3">
+                   <label for="stateDropdown">State</label>
+                   <select class="form-control" id="stateDropdown" required>
+                       <option value="" selected disabled>Please Select State</option>
+                   </select>
+                   <div class="invalid-feedback">
+                       Please select a valid state.
+                   </div>
+               </div>
+            `;
+          }         
+         
+         
+         
+         
+         
